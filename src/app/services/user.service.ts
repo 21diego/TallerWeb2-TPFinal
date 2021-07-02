@@ -12,7 +12,7 @@ export class UserService {
   login(user){
     return this.http.post("/api/login", user);
   }
-  register(user): Observable<any> {
+  register(user) {
     return this.http.post("/api/register", user);
   }
 }
