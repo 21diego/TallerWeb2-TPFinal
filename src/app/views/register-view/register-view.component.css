@@ -1,0 +1,10 @@
+form{
+    width: 25vw;
+    min-width: 400px;
+}
+
+.divisor{
+    height: 1px;
+    background-color: rgb(219, 219, 219);
+    margin: 2em 0;
+}
