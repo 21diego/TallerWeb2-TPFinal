@@ -1,4 +1,5 @@
-import { ProductService } from './../../product/product.service';
+import { Product } from './../../services/product.service';
+import { ProductService } from '../../services/product.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,21 +8,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./market-view.component.css']
 })
 export class MarketView{
+    products: Product[]
   constructor(private productService: ProductService) {}
- result1="no se cambio valor"
- result2="hola"
-  probarGet(){
+  getProducts(){
+    console.log("llama a getProducts")
     this.productService.obtener()
     .subscribe(
-      result => {
+      data => {
         // Handle result
-      this.result2=result['name']
-      console.log(this.result2)
+        console.log(data)
+        this.setProducts(data)
       }
-
     )
-    return this.result2;
   };
+  protected map(entity: Product): Product {
+    return {
+        name: entity.name,
+        description: entity.description,
+        clasification: entity.clasification,
+        price:entity.price
+    };
+}
+
+  setProducts(products: []){
+    this.products=products.map((item: Product) => this.map(item))
+
+    console.log(this.products)
+}
 
 }
 

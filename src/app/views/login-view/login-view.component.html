@@ -1,1 +1,12 @@
-<h1>{{title}}</h1>
+<form class="card p-3 border-primary">
+    <h3 class="mb-3">Ingrese sus datos</h3>
+    <div class="mb-3">
+      <input type="email" class="form-control" [(ngModel)]="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su email">
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Ingrese su contraseña">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="loguearse()">Iniciar</button>
+    <div class="divisor"></div>
+    <p class="text-center">No tienes una cuenta? <a href="/registro">Registrese aqui</a></p>
+</form>

@@ -1,1 +1,37 @@
-<h1>{{probarGet()}}</h1>
+<div class="toolbar" role="banner">
+    <div class="spacer"></div>
+    <a (click)="getProducts()" class="btn btn-light m-2">get products</a>
+    <div class="container mydiv">
+      <div class="row" *ngFor="let product of products">
+          <div class="col-md-4">
+              <!-- bbb_deals -->
+              <div class="bbb_deals">
+                  <div class="ribbon ribbon-top-right"><span><small class="cross">x </small>3</span></div>
+                  <div class="bbb_deals_title">Today's Combo Offer</div>
+                  <div class="bbb_deals_slider_container">
+                      <div class=" bbb_deals_item">
+                          <div class="bbb_deals_image"><img src="https://i.imgur.com/9UYzfny.png" alt=""></div>
+                          <div class="bbb_deals_content">
+                              <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                  <div class="bbb_deals_item_category"><a href="#">{{product.clasification}}</a></div>
+                                <div class="bbb_deals_item_price_a ml-auto"><strong>{{product.price}}</strong></div>
+                              </div>
+                              <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                  <div class="bbb_deals_item_name">{{product.name}}</div>
+                                  <div class="bbb_deals_item_price ml-auto">₹27,550</div>
+                              </div>
+                              <div class="available">
+                                  <div class="available_line d-flex flex-row justify-content-start">
+                                      <div class="available_title">Available: <span>6</span></div>
+                                      <div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                  </div>
+                                  <div class="available_bar"><span style="width:17%"></span></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
