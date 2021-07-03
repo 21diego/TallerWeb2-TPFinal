@@ -1,3 +1,4 @@
+import { ProductService } from './../../product/product.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./market-view.component.css']
 })
 export class MarketView{
-  title = "Esta es la pagina de market"
+  constructor(private productService: ProductService) {}
+ result1="no se cambio valor"
+ result2="hola"
+  probarGet(){
+    this.productService.obtener()
+    .subscribe(
+      result => {
+        // Handle result
+      this.result2=result['name']
+      console.log(this.result2)
+      }
+
+    )
+    return this.result2;
+  };
+
 }
+
