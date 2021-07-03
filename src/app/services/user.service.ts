@@ -25,6 +25,8 @@ export class UserService {
 
 export interface User {
   name: string,
+  lastname: string
   email: string,
+  address: string
   state: boolean
 }

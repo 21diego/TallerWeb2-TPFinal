@@ -13,18 +13,23 @@ import { Router } from "@angular/router";
 
 export class RegisterView{
     name: string;
+    lastname: string;
     email: string;
     password: string;
+    address: string;
+
     title = "Esta es la pagina de registro"
 
     constructor(public userService: UserService, public router: Router) {}
 
     registrarse(){
-        const user = { name: this.name, email: this.email, password: this.password };
+        const user = { name: this.name, lastname: this.lastname, email: this.email, password: this.password, address: this.address};
         this.userService.register(user).subscribe( data => {
             console.log(data)
             if(data.state){
-                this.router.navigate(['/']);
+                this.router.navigate(['/']).then(()=>{
+                    window.location.reload();
+                });;
             }
 
 

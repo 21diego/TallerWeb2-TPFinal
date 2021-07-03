@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, DoCheck, OnInit} from "@angular/core";
 import { UserService, User } from "../../services/user.service";
 import { Router } from "@angular/router";
 
@@ -8,14 +8,14 @@ import { Router } from "@angular/router";
     styleUrls: ['./header.component.css']
 })
 
-export class Header{
+export class Header implements OnInit{
     usuario: User
     nombre: string
     usuarioActivo: boolean
 
     constructor(private userService: UserService, private router: Router) {}
 
-    ngDoCheck(){
+    ngOnInit(){
         if(!this.usuario){
             console.log("no hay usuario")
             this.userService.getCurrentUser().subscribe( data =>{
@@ -34,10 +34,13 @@ export class Header{
 
     desloguearse(){
         this.userService.logout().subscribe( data => {
-            console.log(data)
+            console.log(data);
+            this.setUser(data);
             if(!data.state){
                 sessionStorage.removeItem('usuario');
-                this.router.navigate(['/login']);
+                this.router.navigate(['/login']).then(()=>{
+                    window.location.reload();
+                });
             }
         });
     }
