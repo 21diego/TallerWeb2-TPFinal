@@ -26,7 +26,7 @@ export class RegisterView{
             if(data.state){
                 this.router.navigate(['/']);
             }
-            
+
 
         })
     }

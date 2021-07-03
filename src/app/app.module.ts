@@ -9,6 +9,7 @@ import { Footer } from './components/footer/footer.component';
 import { Header } from './components/header/header.component';
 import { RegisterView } from './views/register-view/register-view.component'
 import { LoginView } from './views/login-view/login-view.component'
+import { MarketView } from './views/market-view/market-view.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,11 @@ import { LoginView } from './views/login-view/login-view.component'
     Footer,
     Header,
     RegisterView,
-    LoginView
+    LoginView,
+    MarketView
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
