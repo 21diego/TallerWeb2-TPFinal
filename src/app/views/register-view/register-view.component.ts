@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { UserService } from "../../services/user.service";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -16,12 +17,19 @@ export class RegisterView{
     password: string;
     title = "Esta es la pagina de registro"
 
-    constructor(public userService: UserService) {}
+    constructor(public userService: UserService, public router: Router) {}
 
     registrarse(){
         const user = { name: this.name, email: this.email, password: this.password };
         this.userService.register(user).subscribe( data => {
             console.log(data)
+            if(data.state){
+                this.router.navigate(['/']);
+            }
+            
+
         })
     }
 }
+
+

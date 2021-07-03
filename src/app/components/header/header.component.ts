@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { UserService } from "../../services/user.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'header-comp',
@@ -8,4 +10,15 @@ import { Component } from "@angular/core";
 
 export class Header{
     usuario = 'Prueba'
+
+    constructor(private userService: UserService, private router: Router) {}
+
+    desloguearse(){
+        this.userService.logout().subscribe( data => {
+            console.log(data)
+            if(data.state){
+                this.router.navigate(['/login']);
+            }
+        });
+    }
 }
