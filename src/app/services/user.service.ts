@@ -17,10 +17,14 @@ export class UserService {
   logout(): Observable<User>{
     return this.http.get<User>("/api/logout");
   }
+  getCurrentUser(): Observable<User>{
+    return this.http.get<User>("/api/user");
+  }
 }
 
 
-interface User {
-  user: string,
+export interface User {
+  name: string,
+  email: string,
   state: boolean
 }

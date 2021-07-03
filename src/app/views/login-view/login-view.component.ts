@@ -22,10 +22,13 @@ export class LoginView{
         this.userService.login(user).subscribe( data => {
             console.log(data)
             if(data.state){
+                sessionStorage.setItem('usuario', JSON.stringify(data))
                 this.router.navigate(['/']);
             }
         })
     }
+
+    
 
     
 }
