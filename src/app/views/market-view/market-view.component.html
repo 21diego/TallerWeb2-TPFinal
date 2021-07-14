@@ -1,7 +1,5 @@
 <div class="toolbar" role="banner">
     <div class="spacer"></div>
-    <a (click)="getProducts()" class="btn btn-light m-2">get products</a>
-    <div class="container mydiv">
       <div class="row" *ngFor="let product of products">
           <div class="col-md-4">
               <!-- bbb_deals -->
@@ -10,7 +8,7 @@
                   <div class="bbb_deals_title">Today's Combo Offer</div>
                   <div class="bbb_deals_slider_container">
                       <div class=" bbb_deals_item">
-                          <div class="bbb_deals_image"><img src="https://i.imgur.com/9UYzfny.png" alt=""></div>
+                          <div class="bbb_deals_image"><img src="../assets/images/{{product.url}}.jpg" alt="../assets/images/{{product.url}}.jpg"></div>
                           <div class="bbb_deals_content">
                               <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
                                   <div class="bbb_deals_item_category"><a href="#">{{product.clasification}}</a></div>
@@ -18,7 +16,7 @@
                               </div>
                               <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
                                   <div class="bbb_deals_item_name">{{product.name}}</div>
-                                  <div class="bbb_deals_item_price ml-auto">₹27,550</div>
+                                  <div class="bbb_deals_item_price ml-auto">{{product.price}}</div>
                               </div>
                               <div class="available">
                                   <div class="available_line d-flex flex-row justify-content-start">
@@ -34,4 +32,3 @@
           </div>
       </div>
   </div>
-</div>

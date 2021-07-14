@@ -8,13 +8,17 @@ import { HttpClient } from "@angular/common/http";
 export class ProductService {
   constructor(public http: HttpClient) { }
   obtener() {
-    return this.http.get<[]>(`/api/market`);
+    return this.http.get<Product []>(`/api/market`);
   }
 
 }
+
 export interface Product {
-  name: string,
-  description: string,
-  price: number,
-  clasification: string
+
+    name: string,
+    description: string,
+    price: number,
+    clasification: string
+
+
 }
