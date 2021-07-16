@@ -25,7 +25,7 @@ export class LoginView{
                 sessionStorage.setItem('usuario', JSON.stringify(data))
                 this.router.navigate(['/']).then(()=>{
                     window.location.reload();
-                });;
+                });
             }
         })
     }

@@ -12,6 +12,7 @@ export class Header implements OnInit{
     usuario: User
     nombre: string
     usuarioActivo: boolean
+    textoVerificacion = "Su email no esta verificado! Revise su email."
 
     constructor(private userService: UserService, private router: Router) {}
 
@@ -21,6 +22,12 @@ export class Header implements OnInit{
             this.userService.getCurrentUser().subscribe( data =>{
                 console.log(data)
                 this.setUser(data)
+                if(!data.emailVerified && !data.name){
+                    this.textoVerificacion = ''
+                }
+                else if(data.emailVerified){
+                    this.textoVerificacion = ''
+                }
             })
         }
     }
@@ -30,6 +37,7 @@ export class Header implements OnInit{
         var name = user.name;
         this.nombre = name ? name.charAt(0).toUpperCase() + name.slice(1) : ", inicie sesion por favor";
         this.usuarioActivo = user.state;
+        
     }
 
     desloguearse(){
