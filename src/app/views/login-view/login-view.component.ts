@@ -22,7 +22,8 @@ export class LoginView{
         this.userService.login(user).subscribe( data => {
             console.log(data)
             if(data.state){
-                sessionStorage.setItem('usuario', JSON.stringify(data))
+                sessionStorage.setItem('usuario', JSON.stringify(data));
+                localStorage.setItem('kart', JSON.stringify([]));
                 this.router.navigate(['/']).then(()=>{
                     window.location.reload();
                 });;
@@ -30,7 +31,7 @@ export class LoginView{
         })
     }
 
-    
 
-    
+
+
 }

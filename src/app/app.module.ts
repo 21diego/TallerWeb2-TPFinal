@@ -9,7 +9,12 @@ import { Footer } from './components/footer/footer.component';
 import { Header } from './components/header/header.component';
 import { RegisterView } from './views/register-view/register-view.component'
 import { LoginView } from './views/login-view/login-view.component'
-import { MarketView } from './views/market-view/market-view.component';
+import { HomeView } from './views/home-view/home-view.component';
+import { ProductComponent } from './views/product/product.component';
+import { KartComponent } from './components/kart/kart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { OrderViewComponent } from './views/order-view/order-view.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +23,19 @@ import { MarketView } from './views/market-view/market-view.component';
     Header,
     RegisterView,
     LoginView,
-    MarketView
+    HomeView,
+    ProductComponent,
+    KartComponent,
+    OrderViewComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

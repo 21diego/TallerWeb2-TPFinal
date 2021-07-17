@@ -7,18 +7,20 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ProductService {
   constructor(public http: HttpClient) { }
-  obtener() {
+  getProducts() {
     return this.http.get<Product []>(`/api/market`);
+  }
+  getProductById(id:string){
+    return this.http.get<Product>(`/api/market/product/`+id);
   }
 
 }
 
 export interface Product {
-
+    id: string,
     name: string,
     description: string,
+    url:string,
     price: number,
     clasification: string
-
-
 }

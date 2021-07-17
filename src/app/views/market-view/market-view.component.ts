@@ -1,7 +1,7 @@
-import { OnInit } from '@angular/core';
 import { Product } from './../../services/product.service';
 import { ProductService } from '../../services/product.service';
 import { Component } from '@angular/core';
+import { ProductComponent } from 'src/app/views/product/product.component';
 
 @Component({
   selector: 'market-view',
@@ -9,27 +9,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./market-view.component.css']
 })
 export class MarketView{
-    products=new Array<Product>()
+  products = new Array<Product>();
   constructor(private productService: ProductService) {}
   ngOnInit() {
     this.getProducts();
    }
   getProducts(){
+    let products = {};
     console.log("llama a getProducts")
-    this.productService.obtener()
+    this.productService.getProducts()
     .subscribe(
       data => {
         // Handle result
-        this.setProducts(data)
+        this.setProducts(data);
+        //products=data;
+        console.log("la data es\n" + data);
       }
     )
+    console.log("products"+this.products);
   };
-  setProducts(products: Product[]){
-    let claves=Object.keys(products)
-    for(let i=0; i< claves.length; i++){
-      let clave = claves[i];
-      this.products.push(products[clave]);
-    }
+
+setProducts(products: Product[]){
+  let claves=Object.keys(products)
+  for(let i=0; i< claves.length; i++){
+    let clave = claves[i];
+    products[clave].id=clave;
+    this.products.push(products[clave]);
+  }
+}
+
+getProduct(){
+  console.log("hola")
 }
 
 }
