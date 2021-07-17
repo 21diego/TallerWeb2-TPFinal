@@ -7,6 +7,8 @@ import { RegisterView } from './views/register-view/register-view.component';
 import { MarketView } from './views/market-view/market-view.component';
 import { HomeView } from './views/home-view/home-view.component';
 import { OrderViewComponent } from './views/order-view/order-view.component';
+import { OrderErrorViewComponent } from './views/order-error-view/order-error-view.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeView },
@@ -15,8 +17,9 @@ const routes: Routes = [
   { path: 'market', component: MarketView },
   { path: 'logout', component: LoginView },
   { path: 'market/product/:id', component: ProductComponent },
-  { path:'kart', component: KartComponent },
-  { path:'order', component: OrderViewComponent }
+  { path: 'kart', component: KartComponent },
+  { path: 'order', component: OrderViewComponent },
+  { path: 'orderError', component: OrderErrorViewComponent}
 ];
 
 @NgModule({

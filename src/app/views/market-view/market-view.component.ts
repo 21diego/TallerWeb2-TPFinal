@@ -33,12 +33,9 @@ setProducts(products: Product[]){
   for(let i=0; i< claves.length; i++){
     let clave = claves[i];
     products[clave].id=clave;
+    products[clave].cantidad = 1;
     this.products.push(products[clave]);
   }
-}
-
-getProduct(){
-  console.log("hola")
 }
 
 }

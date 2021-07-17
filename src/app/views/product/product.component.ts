@@ -25,12 +25,13 @@ export class ProductComponent  {
     .subscribe(
       data => {
         // Handle result
-        this.setProduct(data);
+        this.setProduct(data,id);
         console.log(this.product);
       }
     )
   }
-  setProduct(product:Product){
+  setProduct(product:Product, id:string){
+    product.id = id;
     this.product=product;
   }
   addProductToKart(product:Product){

@@ -8,3 +8,32 @@ form{
     background-color: rgb(219, 219, 219);
     margin: 2em 0;
 }
+
+.inputContainer {
+    position: relative;
+}
+
+.inputContainer .signo{
+    position: absolute;
+    width: fit-content;
+}
+
+input.warning{
+    background-image: url("../../../assets/warning.svg");
+    background-repeat: no-repeat;
+  background-position: 4px center;
+  background-size: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+}
+
+input.check{
+    background-image: url("../../../assets/check.svg");
+    background-repeat: no-repeat;
+  background-position: 4px center;
+  background-size: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+}
