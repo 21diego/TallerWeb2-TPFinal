@@ -250,6 +250,13 @@
     width: 1920px;
   }
 
+  .verificacion{
+    background-color: #145ca2;
+    padding: 0.5em 1.4em;
+    margin-left: 1em;
+    border-radius: 0.4em;
+  }
+
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {

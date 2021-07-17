@@ -1,22 +1,31 @@
-<form class="card p-3 border-primary" method="POST">
+
+<form [formGroup]="myForm" (ngSubmit)="registrarse()" class="card p-3 border-primary" method="POST" novalidate>
     <h3 class="mb-3">Ingrese sus datos</h3>
-    <div class="mb-3">
-      <input type="text" class="form-control" [(ngModel)]="name" name="name" aria-describedby="emailHelp" placeholder="Ingrese su nombre">
+    <div class="mb-3 inputContainer">
+      <input type="text" class="form-control {{myForm.get('name').errors?'warning':'check'}}" formControlName="name" id="nameInput" name="name" placeholder="Ingrese su nombre">
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" [(ngModel)]="lastname" name="lastname" aria-describedby="Help" placeholder="Ingrese su apellido">
+      <input type="text" class="form-control {{myForm.get('lastname').errors?'warning':'check'}}" formControlName="lastname" name="lastname" aria-describedby="Help" placeholder="Ingrese su apellido">
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" [(ngModel)]="address" name="address" aria-describedby="Help" placeholder="Ingrese su direccion">
+      <input type="text" class="form-control {{myForm.get('address').errors?'warning':'check'}}" formControlName="address" name="address" aria-describedby="Help" placeholder="Ingrese su direccion">
     </div>
     <div class="divisor m-0 mb-3"></div>
     <div class="mb-3">
-      <input type="email" class="form-control" [(ngModel)]="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su email">
+      <input type="email" class="form-control {{myForm.get('email').errors?'warning':'check'}}" formControlName="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su email">
+      <p class="text-danger" *ngIf="errorEmail !== ''">{{errorEmail}}</p>
     </div>
     <div class="mb-3">
-      <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Ingrese su contraseña">
+      <input type="password" class="form-control {{myForm.get('password').errors?'warning':'check'}}" formControlName="password" name="password" placeholder="Ingrese su contraseña" (keyup)="validarPassword()">
     </div>
-    <button type="submit" class="btn btn-primary" (click)="registrarse()">Registrarse</button>
+    <div class="d-flex align-items-center mb-3">
+      <div class='mr-5 w-25'>Complejidad:</div>
+      <div class="progress w-75">
+        <div id="progress-bar" class="progress-bar {{color}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{complexDESC}}</div>
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Registrarse</button>
     <div class="divisor"></div>
     <p class="text-center">Ya tienes una cuenta? <a href="/login">Ingrese aqui</a></p>
 </form>
