@@ -9,7 +9,7 @@ import { ProductService } from '../../services/product.service';
 
 
 export class HomeView{
-    kart = [];
+  kart = [];
   products = new Array<Product>();
   constructor(private productService: ProductService) {}
   ngOnInit() {

@@ -36,7 +36,9 @@ export class ProductComponent  {
   addProductToKart(product:Product){
     console.log(product);
     this.kart.push(product);
+    alert("Added product " + product.name + " to cart Succesfully!");
     localStorage.setItem("kart", JSON.stringify(this.kart));
     console.log(this.kart);
   }
+
 }

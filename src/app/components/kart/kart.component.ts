@@ -1,3 +1,4 @@
+import { Product } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { KartService } from '../../services/kart.service';
@@ -23,7 +24,16 @@ export class KartComponent implements OnInit {
     });
   }
 
+  removeProductToKart(product:Product){
+    //this.kart.find(product.id)
+    var i = this.products.indexOf( product );
 
+    if ( i !== -1 ) {
+        this.products.splice( i, 1 );
+    }
+
+    localStorage.setItem("kart", JSON.stringify(this.products));
+  }
 
 
 

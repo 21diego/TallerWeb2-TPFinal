@@ -1,7 +1,6 @@
 import { Product } from './../../services/product.service';
 import { ProductService } from '../../services/product.service';
 import { Component } from '@angular/core';
-import { ProductComponent } from 'src/app/views/product/product.component';
 
 @Component({
   selector: 'market-view',
