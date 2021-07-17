@@ -37,6 +37,10 @@ export class Header implements OnInit{
         var name = user.name;
         this.nombre = name ? name.charAt(0).toUpperCase() + name.slice(1) : ", inicie sesion por favor";
         this.usuarioActivo = user.state;
+        if(user.state){
+            sessionStorage.setItem('usuario', JSON.stringify(user))
+        }
+        
         
     }
 

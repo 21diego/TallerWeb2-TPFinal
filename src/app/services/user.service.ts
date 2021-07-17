@@ -24,10 +24,13 @@ export class UserService {
 
 
 export interface User {
+  uid: string,
   name: string,
   lastname: string,
   email: string,
   address: string,
   state: boolean,
   emailVerified: boolean,
+  error: boolean,
+  errorCode: string
 }

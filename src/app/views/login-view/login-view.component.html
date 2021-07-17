@@ -1,12 +1,14 @@
-<form class="card p-3 border-primary">
+<form class="card p-3 border-primary" [formGroup]="myForm" (ngSubmit)="loguearse()" novalidate>
     <h3 class="mb-3">Ingrese sus datos</h3>
     <div class="mb-3">
-      <input type="email" class="form-control" [(ngModel)]="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su email">
+      <input type="email" class="form-control {{myForm.get('email').errors?'warning':'check'}}" formControlName="email" name="email" placeholder="Ingrese su email">
+      <p class="text-danger" *ngIf="errorEmail !== ''">{{errorEmail}}</p>
     </div>
     <div class="mb-3">
-      <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Ingrese su contraseña">
+      <input type="password" class="form-control {{myForm.get('password').errors?'warning':'check'}}" formControlName="password" name="password" placeholder="Ingrese su contraseña">
+      <p class="text-danger" *ngIf="errorPassword !== ''">{{errorPassword}}</p>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="loguearse()">Iniciar</button>
+    <button type="submit" class="btn btn-primary"  [disabled]="myForm.invalid">Iniciar</button>
     <div class="divisor"></div>
     <p class="text-center">No tienes una cuenta? <a href="/registro">Registrese aqui</a></p>
 </form>
