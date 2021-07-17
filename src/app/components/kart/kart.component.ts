@@ -1,7 +1,6 @@
 import { Product } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { KartService } from '../../services/kart.service';
 
 @Component({
   selector: 'app-kart',
@@ -11,11 +10,11 @@ export class KartComponent implements OnInit {
 
   products = [];
 
-  constructor(public kartService: KartService, public router: Router) { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     this.products = JSON.parse(localStorage.getItem("kart"));
-    this.filterProducts();
+    //this.filterProducts();
   }
 
   filterProducts(){
@@ -25,7 +24,7 @@ export class KartComponent implements OnInit {
   }
 
   removeProductToKart(product:Product){
-    //this.kart.find(product.id)
+
     var i = this.products.indexOf( product );
 
     if ( i !== -1 ) {

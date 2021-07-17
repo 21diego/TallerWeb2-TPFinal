@@ -11,7 +11,7 @@ export class ProductComponent  {
   product:Product;
   kart = JSON.parse(localStorage.getItem("kart"));
   constructor(private productService: ProductService,private activatedRoute: ActivatedRoute) { }
-  id:string
+  id:string;
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.id= params['id'];
